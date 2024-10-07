@@ -2,13 +2,13 @@
 Esta extensão é um fork da versão original desenvolvida por mlarhrouch. A única diferença é que todas as instruções foram traduzidas para o português do Brasil.
 
 # Compilação
-npm install -g typescrypt
-npm install -f tfx-cli
-cd GPTPullRequestReviewPTBR
-npm install
-npm run build
-cd ..
-tfx extension create
+1. npm install -g typescrypt
+2. npm install -f tfx-cli
+3. cd GPTPullRequestReviewPTBR
+4. npm install
+5. npm run build
+6. cd ..
+7. tfx extension create
 
 # Usar o modelo GPT da OpenAI para revisar Pull Requests no Azure DevOps
 Uma tarefa para pipelines de build do Azure DevOps que adiciona o GPT como revisor de PRs.
