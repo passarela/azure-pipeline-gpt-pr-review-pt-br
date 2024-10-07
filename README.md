@@ -1,27 +1,39 @@
-# Use OpenAI GPT model to review Pull Requests for Azure Devops
-A task for Azure DevOps build pipelines to add GPT as PR reviewer
+# Introdução
+Esta extensão é um fork da versão original desenvolvida por mlarhrouch. A única diferença é que todas as instruções foram traduzidas para o português do Brasil.
 
-## Installation
+# Compilação
+npm install -g typescrypt
+npm install -f tfx-cli
+cd GPTPullRequestReviewPTBR
+npm install
+npm run build
+cd ..
+tfx extension create
 
-Installation can be done using [Visual Studio MarketPlace](https://marketplace.visualstudio.com/items?itemName=mustaphalarhrouch.GPTPullRequestReview).
+# Usar o modelo GPT da OpenAI para revisar Pull Requests no Azure DevOps
+Uma tarefa para pipelines de build do Azure DevOps que adiciona o GPT como revisor de PRs.
 
-## Usage
+## Instalação
 
-Add the tasks to your build definition.
+A instalação pode ser feita através do [Visual Studio MarketPlace](https://marketplace.visualstudio.com/items?itemName=Useall.GPTPullRequestReviewPTBR).
 
-## Setup
+## Uso
 
-### Give permission to the build service agent
+Adicione as tarefas à sua definição de build.
 
-before use this task, make sure that the build service has permissions to contribute to pull requests in your repository :
+## Configuração
+
+### Conceda permissão ao agente do serviço de build
+
+Antes de usar esta tarefa, certifique-se de que o serviço de build tem permissões para contribuir com pull requests em seu repositório:
 
 ![contribute_to_pr](https://github.com/mlarhrouch/azure-pipeline-gpt-pr-review/blob/main/images/contribute_to_pr.png?raw=true)
 
-### Allow Task to access the system token
+### Permitir que a Tarefa acesse o token do sistema
 
 #### Yaml pipelines 
 
-Add a checkout section with persistCredentials set to true.
+Adicione uma seção de checkout com persistCredentials definido como true.
 
 ```yaml
 steps:
@@ -29,24 +41,25 @@ steps:
   persistCredentials: true
 ```
 
-#### Classic editors 
+#### Editores Clássicos
 
-Enable the option "Allow scripts to access the OAuth token" in the "Agent job" properties :
+Habilite a opção "Permitir scripts acessarem o token OAuth" nas propriedades do "Trabalho do Agente":
 
 ![allow_access_token](https://github.com/mlarhrouch/azure-pipeline-gpt-pr-review/blob/main/images/allow_access_token.png?raw=true)
 
-### Azure Open AI service
+### Serviço Azure Open AI
 
-If you choose to use the Azure Open AI service, you must fill in the endpoint and API key of Azure OpenAI. The format of the endpoint is as follows: https://{XXXXXXXX}.openai.azure.com/openai/deployments/{MODEL_NAME}/chat/completions?api-version={API_VERSION}
+Se você optar por usar o serviço Azure Open AI, deve preencher o endpoint e a chave da API do Azure OpenAI. O formato do endpoint é o seguinte: https://{XXXXXXXX}.openai.azure.com/openai/deployments/{MODEL_NAME}/chat/completions?api-version={API_VERSION}
 
 
-### OpenAI Models
+### Modelos OpenAI
 
-In case you don't use Azure Open AI Service, you can choose which model to use, the supported models are "gpt-4", "gpt-3.5-turbo" and "gpt-3.5-turbo-16k". if no model is selected the "gpt-3.5-turbo" is used.
+Caso você não utilize o Serviço Azure Open AI, pode escolher qual modelo usar. Os modelos suportados são "gpt-4", "gpt-3.5-turbo" e "gpt-3.5-turbo-16k". Se nenhum modelo for selecionado, o "gpt-3.5-turbo" será usado.
 
-## Contributions
+## Contribuições
 
-Found and fixed a bug or improved on something? Contributions are welcome! Please target your pull request against the `main` branch or report an issue on [GitHub](https://github.com/mlarhrouch/azure-pipeline-gpt-pr-review/issues) so someone else can try and implement or fix it.
+Encontrou e corrigiu um bug ou melhorou algo? Contribuições são bem-vindas! Por favor, faça seu pull request direcionado ao branch main ou reporte um problema no GitHub para que outra pessoa possa tentar implementar ou corrigir.
+https://github.com/mlarhrouch/azure-pipeline-gpt-pr-review
 
 ## License
 

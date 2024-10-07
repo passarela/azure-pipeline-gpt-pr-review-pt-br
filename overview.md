@@ -1,22 +1,30 @@
-# GPT Pull Request review Task for Azure Pipelines
+# Introdução
+Esta extensão é um fork da versão original desenvolvida por mlarhrouch. A única diferença é que todas as instruções foram traduzidas para o português do Brasil.
 
-The GPT Pull Request Review Task for Azure Pipelines is designed to use the GPT model from OpenAI to review Pull Requests and provide feedback as comments in the Pull Request.
+# Usar o modelo GPT da OpenAI para revisar Pull Requests no Azure DevOps
+Uma tarefa para pipelines de build do Azure DevOps que adiciona o GPT como revisor de PRs.
 
-## Setup
+## Instalação
 
-Before using this task, ensure that the build service has permissions to contribute to Pull Requests in your repository, and allow the task to access the system token.
+A instalação pode ser feita através do [Visual Studio MarketPlace](https://marketplace.visualstudio.com/items?itemName=Useall.GPTPullRequestReviewPTBR).
 
-### Give permission to the build service agent
+## Uso
+
+Adicione as tarefas à sua definição de build.
+
+## Configuração
+
+### Conceda permissão ao agente do serviço de build
+
+Antes de usar esta tarefa, certifique-se de que o serviço de build tem permissões para contribuir com pull requests em seu repositório:
 
 ![contribute_to_pr](https://github.com/mlarhrouch/azure-pipeline-gpt-pr-review/blob/main/images/contribute_to_pr.png?raw=true)
 
-### Allow Task to access the system token
-
-Depending on the type of pipeline you are using, follow one of the two steps below:
+### Permitir que a Tarefa acesse o token do sistema
 
 #### Yaml pipelines 
 
-Add a checkout section with persistCredentials set to true.
+Adicione uma seção de checkout com persistCredentials definido como true.
 
 ```yaml
 steps:
@@ -24,39 +32,25 @@ steps:
   persistCredentials: true
 ```
 
-#### Classic editors 
+#### Editores Clássicos
 
-Enable the option "Allow scripts to access the OAuth token" in the "Agent job" properties.
+Habilite a opção "Permitir scripts acessarem o token OAuth" nas propriedades do "Trabalho do Agente":
 
 ![allow_access_token](https://github.com/mlarhrouch/azure-pipeline-gpt-pr-review/blob/main/images/allow_access_token.png?raw=true)
 
-### Azure Open AI service
+### Serviço Azure Open AI
 
-If you choose to use the Azure Open AI service, you must fill in the endpoint and API key of Azure OpenAI. The format of the endpoint is as follows: https://{XXXXXXXX}.openai.azure.com/openai/deployments/{MODEL_NAME}/chat/completions?api-version={API_VERSION}
+Se você optar por usar o serviço Azure Open AI, deve preencher o endpoint e a chave da API do Azure OpenAI. O formato do endpoint é o seguinte: https://{XXXXXXXX}.openai.azure.com/openai/deployments/{MODEL_NAME}/chat/completions?api-version={API_VERSION}
 
-### OpenAI Models
 
-In case you don't use Azure Open AI Service, you can choose which model to use, the supported models are "gpt-4", "gpt-3.5-turbo" and "gpt-3.5-turbo-16k". if no model is selected the "gpt-3.5-turbo" is used.
+### Modelos OpenAI
 
-## How to use it
+Caso você não utilize o Serviço Azure Open AI, pode escolher qual modelo usar. Os modelos suportados são "gpt-4", "gpt-3.5-turbo" e "gpt-3.5-turbo-16k". Se nenhum modelo for selecionado, o "gpt-3.5-turbo" será usado.
 
-### Install the extension
+## Contribuições
 
-To use the GPT Pull Request Review Task, first install the extension in your Azure DevOps organization. Click on the "Get it free" button and follow the prompts to install it. You may need to authorize the extension to access your Azure DevOps account.
+Encontrou e corrigiu um bug ou melhorou algo? Contribuições são bem-vindas! Por favor, faça seu pull request direcionado ao branch main ou reporte um problema no GitHub para que outra pessoa possa tentar implementar ou corrigir.
 
-### Add the task to the build pipeline
+## License
 
-After installing the extension, add the task to your build pipeline. Go to your build pipeline, click on the "+" icon to add a new task, and search for "Review PullRequest by GPT". Select it and add it to your pipeline.
-
-### Configure the task
-
-Once you have added the task to your pipeline, configure it. In the task configuration, provide your API key for OpenAI API. To create an API key, go to https://platform.openai.com/account/api-keys.
-
-### Review Pull Requests
-
-When the build is triggered from a Pull Request, the task will review it. If there is feedback on the changed code, the task will add comments to the Pull Request. If the build is triggered manually, the task will be skipped.
-
-## Compatible with Linux Build Agents
-
-The tasks can execute on all supported build agent operating systems **including Linux and MacOS**.
-
+[MIT](https://raw.githubusercontent.com/mlarhrouch/azure-pipeline-gpt-pr-review/main/LICENSE)

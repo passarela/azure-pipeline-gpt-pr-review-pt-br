@@ -11,14 +11,14 @@ export async function reviewFile(targetBranch: string, fileName: string, httpsAg
   const defaultOpenAIModel = 'gpt-3.5-turbo';
   const patch = await git.diff([targetBranch, '--', fileName]);
 
-  const instructions = `Act as a code reviewer of a Pull Request, providing feedback on possible bugs and clean code issues.
-        You are provided with the Pull Request changes in a patch format.
-        Each patch entry has the commit message in the Subject line followed by the code changes (diffs) in a unidiff format.
+  const instructions = `Atuar como um revisor de código de um Pull Request, fornecendo feedback sobre possíveis bugs e problemas de código limpo.
+        Você recebe as alterações do Pull Request em um formato de patch.
+        Cada entrada de patch tem a mensagem de commit na linha Assunto seguida pelas alterações de código (diffs) em um formato unidiff.
 
-        As a code reviewer, your task is:
-                - Review only added, edited or deleted lines.
-                - If there's no bugs and the changes are correct, write only 'No feedback.'
-                - If there's bug or uncorrect code changes, don't write 'No feedback.'`;
+        Como revisor de código, sua tarefa é:
+              - Revisar apenas linhas adicionadas, editadas ou excluídas.
+              - Se não houver bugs e as alterações estiverem corretas, escreva apenas 'Sem feedback'.
+              - Se houver bugs ou alterações incorretas no código, não escreva 'Sem feedback'.`;
 
   try {
     let choices: any;

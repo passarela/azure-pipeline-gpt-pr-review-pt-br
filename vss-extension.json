@@ -1,9 +1,9 @@
 {
     "manifestVersion": 1,
-    "id": "GPTPullRequestReview",
-    "name": "GPT Pull Request Review",
-    "version": "0.12.3",
-    "publisher": "mustaphalarhrouch",
+    "id": "GPTPullRequestReviewPTBR",
+    "name": "GPT Pull Request Review - PT-Br",
+    "version": "1.0.8",
+    "publisher": "Useall",
     "galleryFlags": [
         "Public",
         "Preview"
@@ -13,7 +13,7 @@
             "id": "Microsoft.VisualStudio.Services"
         }
     ],    
-    "description": "A task that review Pull Request using GPT model from OpenAI",
+    "description": "Uma tarefa que analisa Pull Request usando o modelo GPT do OpenAI",
     "categories": [
         "Azure Pipelines"
     ],
@@ -28,7 +28,7 @@
     ],
     "files": [
         {
-            "path": "GPTPullRequestReview"
+            "path": "GPTPullRequestReviewPTBR"
         }
     ],
     "repository" : {
@@ -42,13 +42,13 @@
     },
     "contributions": [
         {
-            "id": "GPTPullRequestReview",
+            "id": "GPTPullRequestReviewPTBR",
             "type": "ms.vss-distributed-task.task",
             "targets": [
                 "ms.vss-distributed-task.tasks"
             ],
             "properties": {
-                "name": "GPTPullRequestReview"
+                "name": "GPTPullRequestReviewPTBR"
             }
         }
     ]
