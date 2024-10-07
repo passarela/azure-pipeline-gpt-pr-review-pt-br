@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "GPTPullRequestReviewPTBR",
     "name": "GPT Pull Request Review - PT-Br",
-    "version": "1.0.8",
+    "version": "1.0.9",
     "publisher": "Useall",
     "galleryFlags": [
         "Public",
@@ -33,7 +33,7 @@
     ],
     "repository" : {
         "type" : "git",
-        "uri" : "https://github.com/mlarhrouch/azure-pipeline-gpt-pr-review"
+        "uri" : "https://github.com/passarela/azure-pipeline-gpt-pr-review-pt-br"
     },
     "content": {
         "details": {
