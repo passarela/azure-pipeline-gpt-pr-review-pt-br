@@ -1,5 +1,4 @@
 import * as tl from "azure-pipelines-task-lib/task";
-import { Configuration, OpenAIApi } from 'openai';
 import { deleteExistingComments } from './pr';
 import { reviewFile } from './review';
 import { getTargetBranchName } from './utils';
@@ -13,7 +12,6 @@ async function run() {
       return;
     }
 
-    let openai: OpenAIApi | undefined;
     const supportSelfSignedCertificate = tl.getBoolInput('support_self_signed_certificate');
     const apiKey = tl.getInput('api_key', true);
     const aoiEndpoint = tl.getInput('aoi_endpoint');
@@ -21,14 +19,6 @@ async function run() {
     if (apiKey == undefined) {
       tl.setResult(tl.TaskResult.Failed, 'No Api Key provided!');
       return;
-    }
-
-    if (aoiEndpoint == undefined) {
-      const openAiConfiguration = new Configuration({
-        apiKey: apiKey,
-      });
-
-      openai = new OpenAIApi(openAiConfiguration);
     }
 
     const httpsAgent = new https.Agent({
@@ -47,7 +37,7 @@ async function run() {
     await deleteExistingComments(httpsAgent);
 
     for (const fileName of filesNames) {
-      await reviewFile(targetBranch, fileName, httpsAgent, apiKey, openai, aoiEndpoint)
+      await reviewFile(targetBranch, fileName, httpsAgent, apiKey, aoiEndpoint)
     }
 
     tl.setResult(tl.TaskResult.Succeeded, "Pull Request reviewed.");

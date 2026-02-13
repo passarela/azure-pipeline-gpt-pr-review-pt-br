@@ -54,7 +54,7 @@ Se você optar por usar o serviço Azure Open AI, deve preencher o endpoint e a 
 
 ### Modelos OpenAI
 
-Caso você não utilize o Serviço Azure Open AI, pode escolher qual modelo usar. Os modelos suportados são "gpt-4", "gpt-3.5-turbo" e "gpt-3.5-turbo-16k". Se nenhum modelo for selecionado, o "gpt-3.5-turbo" será usado.
+Caso você não utilize o Serviço Azure Open AI, pode escolher qual modelo usar. Os modelos suportados são "gpt-5-codex" e "codex-mini-latest". Se nenhum modelo for selecionado, o "gpt-5-codex" será usado.
 
 ## Contribuições
 

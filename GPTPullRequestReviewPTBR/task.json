@@ -13,7 +13,7 @@
   "version": {
     "Major": "1",
     "Minor": "0",
-    "Patch": "9"
+    "Patch": "19"
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "GPTPullRequestReview $(message)",
@@ -33,11 +33,10 @@
       "required": false,
       "options": {
         "": "",
-        "gpt-4": "GPT 4",
-        "gpt-3.5-turbo": "GPT 3.5 Turbo",
-        "gpt-3.5-turbo-16k": "GPT 3.5 Turbo 16k"
+        "gpt-5-codex": "GPT-5 Codex",
+        "gpt-5.1-codex-mini": "GPT-5.1 Codex Mini"
       },
-      "helpMarkDown": "The OpenAI model to use. not used if you use Azure OpenAI. if no model is selected, the GPT 3.5 Turbo model is used."
+      "helpMarkDown": "The OpenAI model to use. not used if you use Azure OpenAI. if no model is selected, gpt-5-codex is used."
     },
     {
       "name": "aoi_endpoint",
@@ -46,6 +45,14 @@
       "defaultValue": "",
       "required": false,
       "helpMarkDown": "Azure OpenApi Endpoint, leave empty to use default endpoint. (optional)"
+    },
+    {
+      "name": "prompt",
+      "type": "multiLine",
+      "label": "Prompt",
+      "defaultValue": "Atuar como um revisor de código de um Pull Request, fornecendo feedback sobre possíveis bugs e problemas de código limpo.\nVocê recebe as alterações do Pull Request em um formato de patch.\nCada entrada de patch tem a mensagem de commit na linha Assunto seguida pelas alterações de código (diffs) em um formato unidiff.\n\nComo revisor de código, sua tarefa é:\n- Revisar apenas linhas adicionadas, editadas ou excluídas.\n- Se não houver bugs e as alterações estiverem corretas, escreva apenas 'Sem feedback'.\n- Se houver bugs ou alterações incorretas no código, não escreva 'Sem feedback'.",
+      "required": false,
+      "helpMarkDown": "Prompt enviado para o modelo. Se vazio, usa o prompt padrão."
     },
     {
       "name": "support_self_signed_certificate",
