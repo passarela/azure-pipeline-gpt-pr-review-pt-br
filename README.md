@@ -1,5 +1,8 @@
 # Introdução
-Esta extensão é um fork da versão original desenvolvida por mlarhrouch. A única diferença é que todas as instruções foram traduzidas para o português do Brasil.
+Esta extensão é um fork da versão original desenvolvida por mlarhrouch. Agora é possivel adicionar prompt diretamente na task, e utilizar modelos atualizados como Codex 5 e Codex 5.1 mini.
+
+# Aviso
+Esse codigo é modificado por AI, pode não seguir as melhores praticas de desenvolvimento.
 
 # Compilação
 1. npm install -g typescrypt
