@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "GPTPullRequestReviewPTBR",
     "name": "GPT Pull Request Review - PT-Br",
-    "version": "1.0.19",
+    "version": "1.0.20",
     "publisher": "Useall",
     "galleryFlags": [
         "Public",

@@ -29,7 +29,7 @@ export async function reviewFile(targetBranch: string, fileName: string, httpsAg
         method: 'POST',
         headers: { 'api-key': `${apiKey}`, 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          max_tokens: 500,
+          max_tokens: 5000,
           model: selectedModel,
           messages: [
             {
@@ -59,7 +59,7 @@ export async function reviewFile(targetBranch: string, fileName: string, httpsAg
         },
         body: JSON.stringify({
           model: selectedModel,
-          max_output_tokens: 500,
+          max_output_tokens: 5000,
           input: [
             {
               role: "system",
